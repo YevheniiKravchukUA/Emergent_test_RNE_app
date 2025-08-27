@@ -1,4 +1,4 @@
-import {Theme} from '@types/theme';
+import type {Theme} from '../types/theme';
 import {VolstoraColors, TeslaColors, SystemColors} from './colors';
 import {FontFamily, FontSize, LineHeight} from './typography';
 import {Spacing, BorderRadius} from './spacing';
