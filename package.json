@@ -13,7 +13,7 @@
     "build:web": "react-native-web build",
     "build:android": "cd android && ./gradlew assembleRelease",
     "build:ios": "cd ios && xcodebuild -workspace VolstoraBaseApp.xcworkspace -scheme VolstoraBaseApp -configuration Release",
-    "postinstall": "cd ios && pod install"
+    "postinstall": "echo 'Dependencies installed successfully'"
   },
   "dependencies": {
     "react": "18.3.1",
