@@ -602,6 +602,7 @@ yarn start --reset-cache
 - 📧 **Email**: support@volstora.com  
 - 📱 **Telegram**: @volstora_support
 - 💬 **Discord**: Volstora Community
+- ❓ **Частые вопросы**: См. файл `FAQ.md`
 
 ## 🎊 Поздравляем!
 
