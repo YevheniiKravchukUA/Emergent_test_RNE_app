@@ -9,6 +9,7 @@
     "web": "npx webpack serve --config webpack.config.js --mode development",
     "start": "react-native start",
     "test": "jest",
+    "test:web": "node test-web.js",
     "lint": "eslint .",
     "build:web": "npx webpack --config webpack.config.js --mode production",
     "build:android": "cd android && ./gradlew assembleRelease", 
