@@ -6,11 +6,12 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios", 
-    "web": "npx expo start --web",
+    "web": "npx react-native start --experimental-web-debugger",
+    "web-dev": "npx webpack serve --config webpack.config.js --mode development",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "build:web": "npx expo export --platform web",
+    "build:web": "npx webpack --config webpack.config.js --mode production",
     "build:android": "cd android && ./gradlew assembleRelease", 
     "build:ios": "cd ios && xcodebuild -workspace VolstoraBaseApp.xcworkspace -scheme VolstoraBaseApp -configuration Release",
     "postinstall": "echo 'Dependencies installed successfully'"
