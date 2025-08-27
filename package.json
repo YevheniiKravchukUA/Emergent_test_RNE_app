@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "web": "react-native-web start",
+    "ios": "react-native run-ios", 
+    "web": "npx expo start --web",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "build:web": "react-native-web build",
-    "build:android": "cd android && ./gradlew assembleRelease",
+    "build:web": "npx expo export --platform web",
+    "build:android": "cd android && ./gradlew assembleRelease", 
     "build:ios": "cd ios && xcodebuild -workspace VolstoraBaseApp.xcworkspace -scheme VolstoraBaseApp -configuration Release",
     "postinstall": "echo 'Dependencies installed successfully'"
   },
