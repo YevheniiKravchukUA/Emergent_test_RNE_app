@@ -219,7 +219,20 @@ cd ios && pod install && cd ..
 **Веб-версия (самый простой способ):**
 ```bash
 yarn web
-# Откроется браузер с приложением на http://localhost:3000
+# Должен автоматически открыться браузер на http://localhost:3000
+# Если не открылся - откройте http://localhost:3000 вручную
+```
+
+**Альтернативный способ (если yarn web не работает):**
+```bash
+# Установите дополнительные зависимости для веба
+yarn add react-dom
+
+# Запустите веб-версию 
+yarn web
+
+# Если все еще есть проблемы, попробуйте:
+npx webpack serve --config webpack.config.js --mode development --port 3000
 ```
 
 **Android (нужен Android Studio):**
