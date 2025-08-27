@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import {
   View,
@@ -11,15 +12,29 @@ import styled from "styled-components/native";
 import { useTheme } from "@hooks/useTheme";
 import { Button, Input } from "@components";
 import { RegisterForm } from "@types/auth";
+=======
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
+import styled from 'styled-components/native';
+import {useTheme} from '@hooks/useTheme';
+import {Button, Input} from '@components';
+import {RegisterForm} from '@types/auth';
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 
 interface RegisterScreenProps {
   onRegister: (userData: RegisterForm) => void;
   onNavigateToLogin: () => void;
 }
 
+<<<<<<< HEAD
 const Container = styled(KeyboardAvoidingView)<{ backgroundColor: string }>`
   flex: 1;
   background-color: ${(props) => props.backgroundColor};
+=======
+const Container = styled(KeyboardAvoidingView)<{backgroundColor: string}>`
+  flex: 1;
+  background-color: ${props => props.backgroundColor};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 `;
 
 const ContentContainer = styled(ScrollView)`
@@ -38,6 +53,7 @@ const HeaderContainer = styled(View)`
   margin-bottom: 32px;
 `;
 
+<<<<<<< HEAD
 const TitleText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 28px;
@@ -49,6 +65,19 @@ const SubtitleText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 16px;
   font-family: ${(props) => props.theme.typography.fontFamily.regular};
+=======
+const TitleText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 28px;
+  font-weight: bold;
+  font-family: ${props => props.theme.typography.fontFamily.bold};
+`;
+
+const SubtitleText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 16px;
+  font-family: ${props => props.theme.typography.fontFamily.regular};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
   text-align: center;
   margin-top: 8px;
 `;
@@ -64,32 +93,55 @@ const LoginContainer = styled(View)`
   margin-top: 16px;
 `;
 
+<<<<<<< HEAD
 const LoginText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 14px;
   font-family: ${(props) => props.theme.typography.fontFamily.regular};
+=======
+const LoginText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 14px;
+  font-family: ${props => props.theme.typography.fontFamily.regular};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 `;
 
 const LoginLink = styled(TouchableOpacity)`
   margin-left: 4px;
 `;
 
+<<<<<<< HEAD
 const LoginLinkText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 14px;
   font-weight: 600;
   font-family: ${(props) => props.theme.typography.fontFamily.bold};
+=======
+const LoginLinkText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 14px;
+  font-weight: 600;
+  font-family: ${props => props.theme.typography.fontFamily.bold};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 `;
 
 export const RegisterScreen: React.FC<RegisterScreenProps> = ({
   onRegister,
   onNavigateToLogin,
 }) => {
+<<<<<<< HEAD
   const { theme } = useTheme();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+=======
+  const {theme} = useTheme();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Partial<RegisterForm>>({});
 
@@ -97,6 +149,7 @@ export const RegisterScreen: React.FC<RegisterScreenProps> = ({
     const newErrors: Partial<RegisterForm> = {};
 
     if (!name.trim()) {
+<<<<<<< HEAD
       newErrors.name = "Имя обязательно";
     } else if (name.trim().length < 2) {
       newErrors.name = "Имя должно содержать минимум 2 символа";
@@ -118,6 +171,29 @@ export const RegisterScreen: React.FC<RegisterScreenProps> = ({
       newErrors.confirmPassword = "Подтверждение пароля обязательно";
     } else if (password !== confirmPassword) {
       newErrors.confirmPassword = "Пароли не совпадают";
+=======
+      newErrors.name = 'Имя обязательно';
+    } else if (name.trim().length < 2) {
+      newErrors.name = 'Имя должно содержать минимум 2 символа';
+    }
+
+    if (!email.trim()) {
+      newErrors.email = 'Email обязателен';
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = 'Некорректный email';
+    }
+
+    if (!password) {
+      newErrors.password = 'Пароль обязателен';
+    } else if (password.length < 6) {
+      newErrors.password = 'Пароль должен содержать минимум 6 символов';
+    }
+
+    if (!confirmPassword) {
+      newErrors.confirmPassword = 'Подтверждение пароля обязательно';
+    } else if (password !== confirmPassword) {
+      newErrors.confirmPassword = 'Пароли не совпадают';
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
     }
 
     setErrors(newErrors);
@@ -130,7 +206,11 @@ export const RegisterScreen: React.FC<RegisterScreenProps> = ({
     setLoading(true);
     try {
       // Имитация задержки запроса
+<<<<<<< HEAD
       await new Promise((resolve) => setTimeout(resolve, 1500));
+=======
+      await new Promise(resolve => setTimeout(resolve, 1500));
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
       onRegister({
         name: name.trim(),
         email: email.trim(),
@@ -138,7 +218,11 @@ export const RegisterScreen: React.FC<RegisterScreenProps> = ({
         confirmPassword,
       });
     } catch (error) {
+<<<<<<< HEAD
       console.error("Ошибка регистрации:", error);
+=======
+      console.error('Ошибка регистрации:', error);
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
     } finally {
       setLoading(false);
     }
@@ -147,12 +231,19 @@ export const RegisterScreen: React.FC<RegisterScreenProps> = ({
   return (
     <Container
       backgroundColor={theme.colors.background}
+<<<<<<< HEAD
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ContentContainer
         contentContainerStyle={{ flexGrow: 1 }}
         keyboardShouldPersistTaps="handled"
       >
+=======
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <ContentContainer
+        contentContainerStyle={{flexGrow: 1}}
+        keyboardShouldPersistTaps="handled">
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
         <InnerContainer>
           <HeaderContainer>
             <TitleText color={theme.colors.primary}>Регистрация</TitleText>
@@ -209,11 +300,21 @@ export const RegisterScreen: React.FC<RegisterScreenProps> = ({
               Уже есть аккаунт?
             </LoginText>
             <LoginLink onPress={onNavigateToLogin}>
+<<<<<<< HEAD
               <LoginLinkText color={theme.colors.primary}>Войти</LoginLinkText>
+=======
+              <LoginLinkText color={theme.colors.primary}>
+                Войти
+              </LoginLinkText>
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
             </LoginLink>
           </LoginContainer>
         </InnerContainer>
       </ContentContainer>
     </Container>
   );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3

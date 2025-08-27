@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import {
   View,
@@ -11,15 +12,29 @@ import styled from "styled-components/native";
 import { useTheme } from "@hooks/useTheme";
 import { Button, Input } from "@components";
 import { LoginForm } from "@types/auth";
+=======
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
+import styled from 'styled-components/native';
+import {useTheme} from '@hooks/useTheme';
+import {Button, Input} from '@components';
+import {LoginForm} from '@types/auth';
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 
 interface AuthScreenProps {
   onLogin: (credentials: LoginForm) => void;
   onNavigateToRegister: () => void;
 }
 
+<<<<<<< HEAD
 const Container = styled(KeyboardAvoidingView)<{ backgroundColor: string }>`
   flex: 1;
   background-color: ${(props) => props.backgroundColor};
+=======
+const Container = styled(KeyboardAvoidingView)<{backgroundColor: string}>`
+  flex: 1;
+  background-color: ${props => props.backgroundColor};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 `;
 
 const ContentContainer = styled(ScrollView)`
@@ -38,6 +53,7 @@ const LogoContainer = styled(View)`
   margin-bottom: 48px;
 `;
 
+<<<<<<< HEAD
 const LogoText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 32px;
@@ -49,6 +65,19 @@ const SubtitleText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 16px;
   font-family: ${(props) => props.theme.typography.fontFamily.regular};
+=======
+const LogoText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 32px;
+  font-weight: bold;
+  font-family: ${props => props.theme.typography.fontFamily.bold};
+`;
+
+const SubtitleText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 16px;
+  font-family: ${props => props.theme.typography.fontFamily.regular};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
   text-align: center;
   margin-top: 8px;
 `;
@@ -62,10 +91,17 @@ const ForgotPasswordContainer = styled(View)`
   margin-top: 16px;
 `;
 
+<<<<<<< HEAD
 const ForgotPasswordText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 14px;
   font-family: ${(props) => props.theme.typography.fontFamily.regular};
+=======
+const ForgotPasswordText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 14px;
+  font-family: ${props => props.theme.typography.fontFamily.regular};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 `;
 
 const RegisterContainer = styled(View)`
@@ -75,30 +111,51 @@ const RegisterContainer = styled(View)`
   margin-top: 24px;
 `;
 
+<<<<<<< HEAD
 const RegisterText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 14px;
   font-family: ${(props) => props.theme.typography.fontFamily.regular};
+=======
+const RegisterText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 14px;
+  font-family: ${props => props.theme.typography.fontFamily.regular};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 `;
 
 const RegisterLink = styled(TouchableOpacity)`
   margin-left: 4px;
 `;
 
+<<<<<<< HEAD
 const RegisterLinkText = styled(Text)<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 14px;
   font-weight: 600;
   font-family: ${(props) => props.theme.typography.fontFamily.bold};
+=======
+const RegisterLinkText = styled(Text)<{color: string}>`
+  color: ${props => props.color};
+  font-size: 14px;
+  font-weight: 600;
+  font-family: ${props => props.theme.typography.fontFamily.bold};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
 `;
 
 export const AuthScreen: React.FC<AuthScreenProps> = ({
   onLogin,
   onNavigateToRegister,
 }) => {
+<<<<<<< HEAD
   const { theme } = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+=======
+  const {theme} = useTheme();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Partial<LoginForm>>({});
 
@@ -106,6 +163,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
     const newErrors: Partial<LoginForm> = {};
 
     if (!email.trim()) {
+<<<<<<< HEAD
       newErrors.email = "Email обязателен";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Некорректный email";
@@ -115,6 +173,17 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
       newErrors.password = "Пароль обязателен";
     } else if (password.length < 6) {
       newErrors.password = "Пароль должен содержать минимум 6 символов";
+=======
+      newErrors.email = 'Email обязателен';
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = 'Некорректный email';
+    }
+
+    if (!password) {
+      newErrors.password = 'Пароль обязателен';
+    } else if (password.length < 6) {
+      newErrors.password = 'Пароль должен содержать минимум 6 символов';
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
     }
 
     setErrors(newErrors);
@@ -127,10 +196,17 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
     setLoading(true);
     try {
       // Имитация задержки запроса
+<<<<<<< HEAD
       await new Promise((resolve) => setTimeout(resolve, 1000));
       onLogin({ email: email.trim(), password });
     } catch (error) {
       console.error("Ошибка авторизации:", error);
+=======
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      onLogin({email: email.trim(), password});
+    } catch (error) {
+      console.error('Ошибка авторизации:', error);
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
     } finally {
       setLoading(false);
     }
@@ -139,12 +215,19 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
   return (
     <Container
       backgroundColor={theme.colors.background}
+<<<<<<< HEAD
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ContentContainer
         contentContainerStyle={{ flexGrow: 1 }}
         keyboardShouldPersistTaps="handled"
       >
+=======
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <ContentContainer
+        contentContainerStyle={{flexGrow: 1}}
+        keyboardShouldPersistTaps="handled">
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
         <InnerContainer>
           <LogoContainer>
             <LogoText color={theme.colors.primary}>Volstora</LogoText>
@@ -201,4 +284,8 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
       </ContentContainer>
     </Container>
   );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> d32bd4241d675354d77eee9897d31aa8652939a3
